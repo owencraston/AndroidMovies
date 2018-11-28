@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.movie_row.view.*
 
-class MainAdapter: RecyclerView.Adapter<CustomViewHolder>()  {
+class MainAdapter(val moveCollection: Result): RecyclerView.Adapter<CustomViewHolder>()  {
 
-    val movieTitles = listOf("first", "second", "third", "fourth")
     override fun getItemCount(): Int {
-        return movieTitles.size
+        return moveCollection.movies.size
     }
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): CustomViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -18,8 +17,8 @@ class MainAdapter: RecyclerView.Adapter<CustomViewHolder>()  {
         return CustomViewHolder(cellRow)
     }
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        val videoTitle = movieTitles.get(position)
-        holder.view.textView_movie_title.text = videoTitle
+        val movie = moveCollection.movies.get(position)
+        holder.view.textView_movie_title.text = movie.title
     }
 
 }
