@@ -14,5 +14,12 @@ class MainActivity : AppCompatActivity() {
         recyclerView_main.layoutManager = LinearLayoutManager( this )
         recyclerView_main.adapter = MainAdapter()
 
+        //call fetchData
+        fetchData()
+    }
+
+    fun fetchData() {
+        println("fetching movie data")
+
     }
 }
