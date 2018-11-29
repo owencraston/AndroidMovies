@@ -12,7 +12,7 @@ import retrofit2.http.Path
 
 interface MovieClient {
 
-    @GET("list{list_id}")
+    @GET("list/{list_id}")
     fun getMovies(@Path("list_id") list_id: String,
                   @Query("page") page: Int,
                   @Query("api_key") api_key: String): Observable<Result>

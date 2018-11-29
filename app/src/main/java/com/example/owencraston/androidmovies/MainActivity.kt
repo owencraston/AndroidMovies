@@ -15,12 +15,14 @@ class MainActivity : AppCompatActivity() {
     }
     var disposable: Disposable? = null
 
+    val adapter = MainAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView_main.layoutManager = LinearLayoutManager( this )
-
+        recyclerView_main.layoutManager = LinearLayoutManager( this , LinearLayoutManager.VERTICAL, false)
+        recyclerView_main.adapter = adapter
         //call fetchData
         fetchMovies()
     }
@@ -34,8 +36,12 @@ class MainActivity : AppCompatActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                         { result ->  generateMovieList(result)},
-                        { error -> error.message}
+                        { error -> onError(error)}
                     )
+    }
+
+    fun onError(throwable: Throwable) {
+        val name="hello"
     }
 
     // dispose of if request fails
@@ -45,8 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // generate list view
-    fun generateMovieList(moveCollection : Result) {
-        recyclerView_main.layoutManager = LinearLayoutManager( this )
-        recyclerView_main.adapter = MainAdapter(moveCollection)
+    fun generateMovieList(movieCollection : Result) {
+        adapter.setData(movieCollection.results)
     }
 }

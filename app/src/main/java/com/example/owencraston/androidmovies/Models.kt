@@ -1,6 +1,6 @@
 package com.example.owencraston.androidmovies
 
-data class Result(val movies: List<Movie>)
+data class Result(val results: List<Movie>)
 
 data class Movie(
     val vote_average: String,
