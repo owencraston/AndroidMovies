@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
-                        { result ->  recyclerView_main.adapter = MainAdapter(result)},
+                        { result ->  generateMovieList(result)},
                         { error -> error.message}
                     )
     }
@@ -42,5 +42,11 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         disposable?.dispose()
+    }
+
+    // generate list view
+    fun generateMovieList(moveCollection : Result) {
+        recyclerView_main.layoutManager = LinearLayoutManager( this )
+        recyclerView_main.adapter = MainAdapter(moveCollection)
     }
 }
