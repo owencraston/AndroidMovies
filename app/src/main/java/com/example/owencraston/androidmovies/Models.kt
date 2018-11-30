@@ -1,8 +1,14 @@
 package com.example.owencraston.androidmovies
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-data class Result(val results: List<Movie>)
 
-data class Movie(
+@Parcelize
+data class Result(val results: List<Movie>) : Parcelable
+
+
+@Parcelize
+data class Movie (
     val vote_average: String,
     val vote_count: String,
     val id: Int,
@@ -15,4 +21,4 @@ data class Movie(
     val backdrop_path: String,
     val adult: Boolean,
     val overview: String
-)
+) : Parcelable
