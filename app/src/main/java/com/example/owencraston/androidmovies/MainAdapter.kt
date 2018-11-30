@@ -26,6 +26,7 @@ class MainAdapter(): RecyclerView.Adapter<CustomViewHolder>()  {
         val movie_backdrop_url = "https://image.tmdb.org/t/p/original/${movie.backdrop_path}"
         holder.view.textView_movie_title.text = movie.title
         Picasso.get().load(movie_backdrop_url).into(holder?.view?.imageView_movie_backdrop)
+        holder?.movie = movie
     }
 
     fun setData(data : List<Movie>) {
@@ -36,10 +37,11 @@ class MainAdapter(): RecyclerView.Adapter<CustomViewHolder>()  {
 
 }
 
-class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view) {
+class CustomViewHolder(val view: View, var movie : Movie?= null): RecyclerView.ViewHolder(view) {
     init {
         view.setOnClickListener {
-            val intent = Intent(view.context, MovieDetailActivity::class.java)
+            val intent = Intent(view.context, MovieDetailsActivity::class.java)
+            intent.putExtra("movie", movie)
             view.context.startActivity(intent)
         }
     }

@@ -20,5 +20,6 @@ data class Movie (
     val genre_ids: List<Int>,
     val backdrop_path: String,
     val adult: Boolean,
+    val release_date: String,
     val overview: String
 ) : Parcelable
