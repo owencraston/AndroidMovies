@@ -23,6 +23,10 @@ class MovieDetailsActivity() : AppCompatActivity() {
         textView_movie_detail_rating.text = movie.vote_average
         textView_movie_detail_release_date.text = movie.release_date
         textView_movie_detail_overview.text = movie.overview
+
+        // set image
+        val movie_poster_url = "https://image.tmdb.org/t/p/w500/${movie.poster_path}"
+        Picasso.get().load(movie_poster_url).into(imageView_movie_detail_poster)
     }
 
 }
