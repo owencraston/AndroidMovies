@@ -20,8 +20,9 @@ class MovieDetailsActivity() : AppCompatActivity() {
         supportActionBar?.title = movie.title
         // set textViews
         textView_movie_detail_title.text = movie.title
-        textView_movie_detail_rating.text = movie.vote_average
-        textView_movie_detail_release_date.text = movie.release_date
+        textView_movie_detail_rating.text = "Rating: ${movie.vote_average}"
+        textView_movie_detail_release_date.text = "Release Date: ${movie.release_date}"
+        textView_movie_details_adult.text = "Adult: ${movie.adult}"
         textView_movie_detail_overview.text = movie.overview
 
         // set image
