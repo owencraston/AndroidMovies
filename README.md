@@ -15,3 +15,7 @@ In order to do this challenge you will need to:
 4. Opening the Movie Details Screen - [Google official docs](https://developer.android.com/training/basics/firstapp/starting-activity)
 
 Please find the [link](https://play.google.com/store/apps/details?id=com.fivemobile.cineplex&hl=en_CA) to the cineplex App for some inspiration but by any means you need to build something as complex shown there.
+
+## Final Result
+
+![](android_movies_final.gif)
